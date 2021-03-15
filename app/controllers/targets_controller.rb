@@ -14,6 +14,6 @@ class TargetsController < ApplicationController
 
   private
   def target_params
-    params.require(:target).permit(:titel, :genre_id, :deadline, :plan, :great_man, :future, :image).merge(user_id: current_user.id)
+    params.require(:target).permit(:title, :genre_id, :deadline, :plan, :great_man, :future, :image).merge(user_id: current_user.id)
   end
 end
