@@ -6,7 +6,7 @@ class TargetsController < ApplicationController
   def create
     @target = Target.new(target_params)
     if @target.save
-      redirect_to 'users/show'
+      redirect_to root_path
     else
       render :new
     end

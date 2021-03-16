@@ -6,6 +6,9 @@
       <p><%= target.deadline %></p>
     </div>
   <% end %>
-  <%= link_to '投稿する', new_target_path, method: :get %>
-
+  <%# <%= link_to '投稿する', new_target_path, method: :get %>
 </div>
+<%= link_to(new_target_path, class: 'target-icon') do %>
+  <%# <span class='target-btn-text'>投稿する</span> %>
+  <%= image_tag 'logo.png' , size: '100x100' ,class: "target-btn-icon" %>
+<% end %>
