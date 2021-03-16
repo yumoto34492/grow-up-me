@@ -18,7 +18,7 @@
 
         <div class="weight-bold-text">
           分野
-          <span class="indispensable">必須</span>
+          <%# <span class="indispensable">必須</span> %>
         </div>
         <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"target-genre"}) %>
 
@@ -28,17 +28,6 @@
         </div>
         <div class='input-deadline-wrap'>
           <%= f.date_field :deadline %>
-          <%# <%= raw sprintf(
-                      f.date_select(
-                        :deadline,
-                        class:'select-deadline',
-                        id:"deadline-date",
-                        use_month_numbers: true,
-                        prompt:'--',
-                        start_year: 2021,
-                        end_year: (Time.now.year + 5),
-                        date_separator: '%s'),
-                      "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
         </div>
 
         <div class="weight-bold-text">
@@ -46,6 +35,9 @@
           <span class="indispensable">必須</span>
         </div>
         <%= f.text_area :plan, class:"targets-text", id:"target-info", placeholder:"例）毎日、寝る前に30分読書をする。一冊は必ず持ち歩く（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+        <%# <input type="submit" value="SEND" class="send" %>
+        <%# <input type="text" id="text_val" name="firstname" %>
+        <%# <button id="add_check_box">追加</button> %>
 
         <div class="weight-bold-text">
           目標の人物
@@ -69,6 +61,7 @@
           <%= f.file_field :image, id:"item-image" %>
         </div>
 
+    
         <%# 下部ボタン %>
         <div class="traget-btn-contents">
           <%= f.submit "投稿する" ,class:"target-btn" %>
