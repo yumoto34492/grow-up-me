@@ -7,10 +7,16 @@ class Target < ApplicationRecord
 
   with_options presence: true do
     validates :title, length: { maximum: 40 }
-    validates :deadline  
+    validates :deadline
+    validates :genre_id, numericality: { other_than: 1 }
     validates :plan, length: { maximum: 1000 }
     validates :future, length: { maximum: 200 }
   end
-  validates :genre, presence: true
-  validates :genre_id, numericality: { other_than: 1 }
-end
+
+  validate :deadline_ago
+    def deadline_ago
+      unless deadline == nil
+        errors.add(:deadline, 'can`t specify a date in the past') if deadline < Date.today
+      end
+    end
+ end
