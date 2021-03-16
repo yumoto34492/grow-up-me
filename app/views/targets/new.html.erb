@@ -1,0 +1,73 @@
+<div class="targets-post-contents">
+  <header class="targets-post-header">
+
+  </header>
+  <div class="tragets-post-main">
+    <h3 class="targets-post-title">目標を設定</h3>
+    <%= form_with model: @target, url: targets_path, local: true do |f| %>
+
+      <%= render "shared/error_messages", model: f.object %>
+
+      <%# 目標設定 %>
+      <div class="new-title">
+        <div class="weight-bold-text">
+          目標
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :title, class:"targets-text", id:"target-name", placeholder:"例）今月5冊読書する（必須 40文字まで)", maxlength:"40" %>
+
+        <div class="weight-bold-text">
+          分野
+          <%# <span class="indispensable">必須</span> %>
+        </div>
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"target-genre"}) %>
+
+        <div class='form-text-wrap'>
+          <label class="form-text">期日</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <div class='input-deadline-wrap'>
+          <%= f.date_field :deadline %>
+        </div>
+
+        <div class="weight-bold-text">
+          アクションプラン
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :plan, class:"targets-text", id:"target-info", placeholder:"例）毎日、寝る前に30分読書をする。一冊は必ず持ち歩く（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+        <%# <input type="submit" value="SEND" class="send" %>
+        <%# <input type="text" id="text_val" name="firstname" %>
+        <%# <button id="add_check_box">追加</button> %>
+
+        <div class="weight-bold-text">
+          目標の人物
+          <%# <span class="indispensable">必須</span> %>
+        </div>
+        <%= f.text_area :great_man, class:"targets-text", id:"target-longing", placeholder:"メンタリストDaigo（必須 40文字まで)", maxlength:"40" %>
+
+        <div class="weight-bold-text">
+          目標達成後の自分はどうなっている？
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :future, class:"targets-text", id:"target-after", placeholder:"読書週間が身に付き、向上心を持って自己研鑽するようになっている。（必須 200文字まで)",rows:"4", maxlength:"200" %>
+      
+        <div class="weight-bold-text">
+          イメージ写真
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :image, id:"item-image" %>
+        </div>
+
+    
+        <%# 下部ボタン %>
+        <div class="traget-btn-contents">
+          <%= f.submit "投稿する" ,class:"target-btn" %>
+          <%=link_to 'もどる', root_path, class:"back-btn" %>
+      </div>
+      <%# /下部ボタン %>
+    <% end %>
+  </div>
+</div>
