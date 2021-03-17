@@ -1,10 +1,12 @@
 <div class="contents row">
   <p><%= @name %>さんの目標一覧</p>
   <% @targets.each do |target| %>
-    <div class="content_post" style="background-image: url(<%= target.image %>);">
-      <p><%= target.title %></p>
-      <p><%= target.deadline %></p>
-    </div>
+    <%= link_to  target_path(target.id), method: :get do %>
+      <div class="content_post" style="background-image: url(<%= target.image %>);">
+        <p><%= target.title %></p>
+        <p><%= target.deadline %></p>
+      </div>
+    <% end%>
   <% end %>
   <%# <%= link_to '投稿する', new_target_path, method: :get %>
 </div>
