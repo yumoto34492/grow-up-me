@@ -1,9 +1,9 @@
 class Target < ApplicationRecord
   belongs_to :user
+  has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre
-  has_one_attached :image
 
   with_options presence: true do
     validates :title, length: { maximum: 40 }
