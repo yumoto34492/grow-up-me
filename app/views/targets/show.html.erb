@@ -26,8 +26,10 @@
     </div>
   </div>
   <div class="target-image">
-    <b>イメージ写真</b><br>
-    <%= image_tag @target.image.variant(resize: '500x500'), class: 'target-image' if @target.image.attached? %>  
+    <% if @target.image.present?%>
+      <b>イメージ写真</b><br>
+      <%= image_tag @target.image.variant(resize: '500x500'), class: 'target-image' if @target.image.attached? %>  
+    <% end %>
   </div>
 
   <% if user_signed_in? && current_user.id == @target.user_id %>
