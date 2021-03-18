@@ -1,7 +1,7 @@
 class TargetsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy]
   before_action :set_target, only: [:show, :edit, :update]
-  before_action :target_user, only: [:edit, :update]
+  before_action :target_user, only: [:show, :edit, :update]
 
 
   def new
@@ -29,6 +29,12 @@ class TargetsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    target = Target.find(params[:id])
+    target.destroy if current_user.id == target.user_id
+    redirect_to root_path
   end
 
 
