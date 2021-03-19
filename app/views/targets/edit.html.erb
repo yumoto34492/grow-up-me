@@ -18,7 +18,6 @@
 
         <div class="weight-bold-text">
           分野
-          <%# <span class="indispensable">必須</span> %>
         </div>
         <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"target-genre"}) %>
 
@@ -35,13 +34,9 @@
           <span class="indispensable">必須</span>
         </div>
         <%= f.text_area :plan, class:"targets-text", id:"target-info", placeholder:"例）毎日、寝る前に30分読書をする。一冊は必ず持ち歩く（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
-        <%# <input type="submit" value="SEND" class="send" %>
-        <%# <input type="text" id="text_val" name="firstname" %>
-        <%# <button id="add_check_box">追加</button> %>
 
         <div class="weight-bold-text">
           目標の人物
-          <%# <span class="indispensable">必須</span> %>
         </div>
         <%= f.text_area :great_man, class:"targets-text", id:"target-longing", placeholder:"メンタリストDaigo（必須 40文字まで)", maxlength:"40" %>
 
@@ -50,16 +45,36 @@
           <span class="indispensable">必須</span>
         </div>
         <%= f.text_area :future, class:"targets-text", id:"target-after", placeholder:"読書週間が身に付き、向上心を持って自己研鑽するようになっている。（必須 200文字まで)",rows:"4", maxlength:"200" %>
-      
-        <div class="weight-bold-text">
-          イメージ写真
-        </div>
-        <div class="click-upload">
-          <p>
-            クリックしてファイルをアップロード
-          </p>
-          <%= f.file_field :image, id:"item-image" %>
-        </div>
+
+        <%# <% if @target.image.present? %> 
+          <%# <b>イメージ写真</b><br>
+          <%= image_tag @target.image.variant(resize: '500x500'), class: 'target-image' if @target.image.attached? %>
+          <%# <a id="modalOpen" class="modalOpen">写真を削除する場合はチェックしてください</a> %>
+            <%# <%= f.check_box @target.image.id %>
+            <%# <p>写真を削除する場合はチェックしてください</p> %>
+            <%# <%= link_to "[Delete]", target_path(@target.id), method: :delete, data: {confirm: "are you sure?"} %>
+
+          <%# <div class="modal" id="modal">
+            <h3>写真を削除しますか？</h3>
+            <div class="modalContents">
+              <%# <%= link_to '削除する', image.id, method: :delete, class: "target-delete-btn" %>
+              <%# <a id="modalClose" class="modalClose">削除しない</a>
+            </div>
+          </div>
+          <div class="mask" id="mask"></div> %>
+        <%# <% else %>
+          <div class="weight-bold-text">
+            イメージ写真<br>
+            <%= image_tag @target.image.variant(resize: '500x500'), class: 'target-image' if @target.image.attached? %>
+          </div>
+          <div class="click-upload">
+            <p>
+              画像を変更する場合は、クリックしてファイルをアップロード
+            </p>
+            <%= f.file_field :image, id:"item-image" %>
+          </div>
+        <%# <% end %>
+        
 
     
         <%# 下部ボタン %>

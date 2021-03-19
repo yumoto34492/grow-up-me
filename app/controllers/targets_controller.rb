@@ -17,13 +17,17 @@ class TargetsController < ApplicationController
     end
   end
 
-   def show
+  def show
   end
 
   def edit
   end
 
   def update
+    # if params[:target][:image_id]
+    #   image = @target.image.find(image_id)
+    #   image.purge
+    # end
     if @target.update(target_params)
       redirect_to target_path(@target.id)
     else
