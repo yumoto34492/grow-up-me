@@ -10,7 +10,7 @@
     </div>
     <div class="target-deadline">
       <b>期日</b><br>
-      <%= @target.deadline %>まで
+      <%= @target.deadline.strftime("%Y年%m月%d日") %>まで</p>
     </div>
     <div class="target-plan">
       <b>アクションプラン</b><br>
@@ -34,5 +34,16 @@
 
   <% if user_signed_in? && current_user.id == @target.user_id %>
     <%= link_to "編集", edit_target_path(@target.id), method: :get, class: "target-edit-btn" %>
+    
+    <a id="modalOpen" class="modalOpen">削除</a>
+  
+    <div class="modal" id="modal">
+      <h3>目標を削除しますか？</h3>
+        <div class="modalContents">
+          <%= link_to "削除する", target_path(@target.id), method: :delete, class: "target-delete-btn" %><br>
+          <a id="modalClose" class="modalClose">削除しない</a>
+        </div>
+    </div>
+    <div class="mask" id="mask"></div>
   <% end %>
 </div>

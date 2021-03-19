@@ -2,9 +2,13 @@
   <p><%= @name %>さんの目標一覧</p>
   <% @targets.each do |target| %>
     <%= link_to  target_path(target.id), method: :get do %>
-      <div class="content_post" style="background-image: url(<%= target.image %>);">
-        <p><%= target.title %></p>
-        <p><%= target.deadline %></p>
+      <div class="content_post" style="background-image">
+        <p>タイトル : <%= target.title %></p>
+        <p>期日 : <%= target.deadline.strftime("%Y年%m月%d日") %>まで</p>
+        <% if target.image.present?%>
+        <b>イメージ写真</b><br>
+          <%= image_tag target.image.variant(resize: '500x500'), class: 'target-image' if target.image.attached? %>  
+        <% end %>
       </div>
     <% end%>
   <% end %>
@@ -13,3 +17,4 @@
 <%= link_to(new_target_path, class: 'target-icon') do %>
 <%= image_tag 'logo.png' , size: '100x100' ,class: "target-btn-icon" %>
 <% end %>
+
