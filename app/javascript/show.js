@@ -1,10 +1,10 @@
 function show (){
-  const delOpen = document.getElementById("modalOpen")
+  const delOpen = document.getElementById("modalOpen");
   delOpen.addEventListener("click", function() {
     document.getElementById("modal").classList.add("active");
     document.getElementById("mask").classList.add("active");
   });
-  const delClose = document.getElementById("modalClose")
+  const delClose = document.getElementById("modalClose");
   delClose.addEventListener("click", function() {
     document.getElementById("modal").classList.remove("active");
     document.getElementById("mask").classList.remove("active");
