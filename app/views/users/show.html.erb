@@ -1,4 +1,4 @@
-<div class="contents row">
+<div class="contents_row">
   <p><%= @name %>さんの目標一覧</p>
   <% @targets.each do |target| %>
     <%= link_to  target_path(target.id), method: :get do %>
