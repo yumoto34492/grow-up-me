@@ -1,0 +1,144 @@
+
+.wallpaper {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-image: url(beach.jpg);
+  background-repeat: no-repeat;
+  font-family: sans-serif;
+  background-size: cover;
+  background-position: center;
+}
+
+.login-form {
+  width: 320px;
+  height: 100;
+  background: #fff;
+  color: #000;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 20px 20px;
+  border-radius: 5%;
+  opacity: 80%;
+  border: solid 2.5px purple;
+}
+
+.logo-a {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -27%;
+  left: 105px;
+  border: solid 2.5px purple;
+}
+
+h1 {
+  margin: 0;
+  padding: 0, 0 20px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration:underline purple;
+}
+
+.field {
+  margin-top: 10px;
+  padding: 0%;
+  font-weight: bold;
+}
+
+.login-btn {
+  display       : inline-block;
+  border-radius : 5%;
+  font-size     : 10pt;
+  text-align    : center;
+  padding       : 8px 10px;
+  background    : purple;
+  color         : #ffffff;
+  line-height   : 1em;
+  transition    : .3s;
+  border        : 2px solid black;
+}
+
+
+.actions {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.suport {
+  text-decoration: none;
+}
+
+.signin-form {
+  width: 320px;
+  height: 100;
+  background: #fff;
+  color: #000;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 20px 20px;
+  border-radius: 5%;
+  opacity: 80%;
+  border: solid 2.5px purple;
+}
+  
+
+.logo-b {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -32%;
+  left: 105px;
+  border: solid 2.5px purple;
+}
+
+.sign-btn {
+  display       : inline-block;
+  border-radius : 5%;
+  font-size     : 10pt;
+  text-align    : center;
+  padding       : 8px 10px;
+  background    : purple;
+  color         : #ffffff;
+  line-height   : 1em;
+  transition    : .3s;
+  border        : 2px solid black;
+}
+
+/* ヘッダー */
+.header__bar_row {
+ background-color: #cde4ff;
+}
+.grid-1 {
+  font-size: 50px;
+  margin: auto;
+  padding: auto;
+}
+
+.grid-2 {
+  text-align: right;
+  flex-direction: row;
+}
+
+.post {
+  font-size: 20px;
+  margin-left: auto;
+  text-align: right;
+  background-color: white;
+  text-decoration: none;
+  border: 1px solid purple;
+  opacity: 60%;
+  padding: 5px 5px;
+  border-radius: 5%;
+  font-weight: bold;
+}

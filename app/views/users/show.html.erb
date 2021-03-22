@@ -1,20 +1,43 @@
-<div class="contents row">
-  <p><%= @name %>さんの目標一覧</p>
-  <% @targets.each do |target| %>
-    <%= link_to  target_path(target.id), method: :get do %>
-      <div class="content_post" style="background-image">
-        <p>タイトル : <%= target.title %></p>
-        <p>期日 : <%= target.deadline.strftime("%Y年%m月%d日") %>まで</p>
-        <% if target.image.present?%>
-        <b>イメージ写真</b><br>
-          <%= image_tag target.image.variant(resize: '500x500'), class: 'target-image' if target.image.attached? %>  
+<div class="main">
+  <div class="left">   
+    <p>目標タイトル一覧</p>
+
+    <% @targets.each do |target| %>
+      <div class="content_post_title" style="background-image">
+        <div class="check-box">
+          <input type="checkbox" >
+        </div>
+        <%= link_to target_path(target.id), method: :get do %>
+          <div class="title_check">
+            <%= target.title %>
+          </div>
         <% end %>
       </div>
-    <% end%>
-  <% end %>
-  <%# <%= link_to '投稿する', new_target_path, method: :get %>
+    <% end %>
+  </div>  
+  <div class="rigth">
+    <div class="rigth-title">
+      <p><%= @name %>さんの目標一覧</p>
+    </div>
+    <% @targets.each do |target| %>
+      <div class="li">
+        <%= link_to  target_path(target.id), method: :get do %>
+          <div class="content_post" style="background-image">
+            <p>タイトル : <%= target.title %></p>
+            <p>期日 : <%= target.deadline.strftime("%Y年%m月%d日") %>まで</p>
+            <% if target.image.present?%>
+              <b>イメージ写真</b><br>
+              <%= image_tag target.image.variant(resize: '500x500'), class: 'target-image' if target.image.attached? %>  
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="target-new">
+    <%= link_to(new_target_path) do %>
+      <span class='target-btn-text'>目  標</span>
+      <%= image_tag 'memo.png', size: '100x100', class: "target-btn-icon" %>
+    <% end %>
+  </div>
 </div>
-<%= link_to(new_target_path, class: 'target-icon') do %>
-<%= image_tag 'logo.png' , size: '100x100' ,class: "target-btn-icon" %>
-<% end %>
-
