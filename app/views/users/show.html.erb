@@ -1,15 +1,14 @@
 <div class="main">
-  <div class="left">   
-    <p>目標タイトル一覧</p>
+  <div class="left">  
+    <div class="title-only"> 
+      <p>目標タイトル一覧</p>
+    </div>
 
     <% @targets.each do |target| %>
       <div class="content_post_title" style="background-image">
-        <div class="check-box">
-          <input type="checkbox" >
-        </div>
         <%= link_to target_path(target.id), method: :get do %>
           <div class="title_check">
-            <%= target.title %>
+            ・<%= target.title %>
           </div>
         <% end %>
       </div>

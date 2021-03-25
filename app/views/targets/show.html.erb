@@ -1,49 +1,60 @@
 <div class="target-show">
-  <div class="target-text">
+  <div class="show-main">
     <div class="target-title">
       <b>目標</b><br>
       <%= @target.title %>
     </div>
-    <div class="target-genre">
-      <b>ジャンル</b><br>
-      <%= @target.genre.name %>
+    <div class="target-show-box">
+      <div class="target-genre">
+        <b>ジャンル</b><br>
+        <%= @target.genre.name %>
+      </div>
     </div>
-    <div class="target-deadline">
-      <b>期日</b><br>
-      <%= @target.deadline.strftime("%Y年%m月%d日") %>まで</p>
+    <div class="target-show-box">
+      <div class="target-deadline">
+        <b>期日</b><br>
+        <%= @target.deadline.strftime("%Y年%m月%d日") %>まで</p>    </div>
     </div>
-    <div class="target-plan">
-      <b>アクションプラン</b><br>
-      <%= @target.plan %>
+    <div class="target-show-box">
+      <div class="target-plan">
+        <b>アクションプラン</b><br>
+        <%= @target.plan %>
+      </div>
     </div>
-    <div class="target-great-man">
-      <b>目標の人物</b><br>
-      <%= @target.great_man %>
+    <div class="target-show-box">
+      <div class="target-great-man">
+        <b>目標の人物</b><br>
+        <%= @target.great_man %>
+      </div>
     </div>
-    <div class="terget-future">
-      <b>目標達成後の自分はどうなっている</b><br>
-      <%= @target.future %>
+    <div class="target-show-box">
+      <div class="terget-future">
+        <b>目標達成後の自分はどうなっている</b><br>
+        <%= @target.future %>
+      </div>
+    </div>
+    <div class="target-show-box">
+      <div class="target-image">
+        <% if @target.image.present?%>
+          <b>イメージ写真</b><br>
+          <%= image_tag @target.image.variant(resize: '500x500'), class: 'target-image' if @target.image.attached? %>  
+        <% end %>
+      </div>
     </div>
   </div>
-  <div class="target-image">
-    <% if @target.image.present?%>
-      <b>イメージ写真</b><br>
-      <%= image_tag @target.image.variant(resize: '500x500'), class: 'target-image' if @target.image.attached? %>  
+  <div class="edit-delete-btn">
+    <% if user_signed_in? && current_user.id == @target.user_id %>
+      <%= link_to "編  集", edit_target_path(@target.id), method: :get, class: "target-edit-btn" %>
     <% end %>
-  </div>
-
-  <% if user_signed_in? && current_user.id == @target.user_id %>
-    <%= link_to "編集", edit_target_path(@target.id), method: :get, class: "target-edit-btn" %>
-    
     <a id="modalOpen" class="modalOpen">削除</a>
-  
-    <div class="modal" id="modal">
-      <h3>目標を削除しますか？</h3>
-        <div class="modalContents">
-          <%= link_to "削除する", target_path(@target.id), method: :delete, class: "target-delete-btn" %><br>
-          <a id="modalClose" class="modalClose">削除しない</a>
-        </div>
-    </div>
+      <div class="modal" id="modal">
+        <h3>目標を削除しますか？</h3>
+          <div class="modalContents">
+            <%= link_to "削除する", target_path(@target.id), method: :delete, class: "target-delete-btn" %><br>
+            <a id="modalClose" class="modalClose">削除しない</a>
+          </div>
+      </div>
     <div class="mask" id="mask"></div>
-  <% end %>
+  </div>
 </div>
+
