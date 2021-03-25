@@ -6,7 +6,7 @@
   align-items: center;
   flex-direction: column;
   min-width: 500px;
-  height: 100vh;
+  height: 100%;
 }
 
 .targets-post-title {
@@ -106,32 +106,132 @@
 }
 
 .target-btn {
-  background: rgb(211, 17, 211);
-  border: 1px solid rgb(211, 17, 211);
-  color:white;
+  background: #cde4ff;
+  border: none;
+  color:purple;
   width: 100%;
   height: 50px;
-  font-size: 17px;
+  font-size: 25px;
   margin-top: 4vh;
-  margin-bottom: 4vh;
+  margin-bottom: 2vh;
   font-weight: bold;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.target-btn:hover {
+  background-color: purple;
+  color: #fff;
+  transition: 0.2s;
 }
 
 .back-btn {
   background: #aaa;
   border: 1px solid #aaa;
-  color: #fff;
-  padding: 15px 35%;
+  color: purple;
   text-decoration: none;
-  font-size: 17px;
+  text-align: center;
+  padding: 10px 70px;
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 20px;
+  border-radius: 20px;
 }
+
+.back-btn:hover {
+  background-color: purple;
+  color: #fff;
+  transition: 0.2s;
+}
+
+/* 詳細画面 */
+.target-show {
+  background-color: #f5f5f5;
+}
+
+.show-main {
+  width: 60%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.show-main {
+  font-size: 30px;
+}
+
+.target-title {
+  color: purple;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.target-show-box {
+  margin-top:20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.edit-delete-btn {
+  margin-top: 20px;
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.target-edit-btn {
+  font-size: 30px;
+  font-weight: bold;
+  width: 200px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #cde4ff;  color: purple;
+}
+
+.target-edit-btn:hover{
+  background-color: blueviolet;
+  color: #fff;
+  transition: 0.2s;
+}
+
+.target-delete-btn {
+  font-size: 20px;
+}
+
+.modalOpen {
+  font-size: 30px;
+  font-weight: bold;
+  width: 200px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #cde4ff;
+  color: purple;
+}
+
+.modalOpen:hover {
+  background-color: blueviolet;
+  color: #fff;
+  transition: 0.2s;
+}
+
 
 /* モーダルウインドウ */
 .modalOpen, .modalClose {
   cursor: pointer;
 }
 
+.modal h3{
+  font-size: 20px;
+  margin-bottom: 15px;
+}
 
+.modalClose {
+  font-size: 20px;
+}
 
 .modal {
   position: fixed;
