@@ -53,18 +53,26 @@ h1 {
 }
 
 .login-btn {
-  display       : inline-block;
+  display: inline-block;
   border-radius : 5%;
-  font-size     : 10pt;
-  text-align    : center;
-  padding       : 8px 10px;
-  background    : purple;
-  color         : #ffffff;
-  line-height   : 1em;
-  transition    : .3s;
-  border        : 2px solid black;
+  font-size: 10pt;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px 10px;
+  background: purple;
+  color: #ffffff;
+  line-height: 1em;
+  border: 2px solid black;
+  cursor: pointer;
 }
 
+.login-btn:hover {
+  transition    : .3s;
+  background-color: #cde4ff;
+  color: purple;
+  font-weight: bold;
+  border: 2px solid purple;
+}
 
 .actions {
   width: 100%;
@@ -90,7 +98,7 @@ h1 {
   opacity: 80%;
   border: solid 2.5px purple;
 }
-  
+
 
 .logo-b {
   width: 100px;
@@ -113,6 +121,15 @@ h1 {
   line-height   : 1em;
   transition    : .3s;
   border        : 2px solid black;
+  cursor: pointer;
+}
+
+.sign-btn:hover {
+  transition    : .3s;
+  background-color: #cde4ff;
+  color: purple;
+  font-weight: bold;
+  border: 2px solid purple;
 }
 
 /* ヘッダー */
