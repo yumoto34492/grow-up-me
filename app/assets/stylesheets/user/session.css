@@ -4,11 +4,11 @@
   height: 100vh;
   margin: 0;
   padding: 0;
-  background-image: url(beach.jpg);
-  background-repeat: no-repeat;
   font-family: sans-serif;
+  /* background-image: url(beach.jpg);
+  background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center; */
 }
 
 .login-form {
