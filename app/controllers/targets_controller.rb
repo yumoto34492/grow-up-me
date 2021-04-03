@@ -1,8 +1,12 @@
 class TargetsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :move_to_index, except: [:index, :show]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_target, only: [:show, :edit, :update]
-  before_action :target_user, only: [:show, :edit, :update]
+  before_action :target_user, only: [:edit, :update]
 
+  def index
+    @targets = Target.order("created_at DESC")
+  end
 
   def new
     @target = Target.new
@@ -56,4 +60,11 @@ class TargetsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
+  end
+
 end
