@@ -20,8 +20,29 @@ describe TargetsController, type: :request do
     end
   end
 
-  describe 'GET #show'
-end
+  describe 'GET #show' do
+    it 'showアクションにリクエストすると正常にレスポンスが返ってくる' do
+      get target_path(@target)
+      expect(response.status).to eq 200
+    end
+    it 'showアクションにリクエストするとレスポンスに投稿済みの目標のタイトルが存在する' do
+      get target_path(@target)
+      expect(response.body).to include(@target.title)
+    end
+    it 'showアクションにリクエストするとレスポンスに投稿済みの目標の期日が存在する' do
+      get target_path(@target)
+      expect(response.body).to include(@target.deadline.strftime("%Y年%m月%d日"))
+    end
+    it 'showアクションにリクエストするとレスポンスに投稿済みの目標のアクションプランが存在する' do
+      get target_path(@target)
+      expect(response.body).to include(@target.plan)
+    end
+    it 'showアクションにリクエストするとレスポンスに投稿済みの目標の目標達成後の自分はどうなっている？が存在する' do
+      get target_path(@target)
+      expect(response.body).to include(@target.future)
+    end
+   end
+ end
 # RSpec.describe "Targets", type: :request do
 #   describe "GET /targets" do
 #     it "works! (now write some real specs)" do
