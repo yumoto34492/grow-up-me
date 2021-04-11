@@ -6,7 +6,7 @@ FactoryBot.define do
     plan              { '23時までに寝る。' }
     great_man         { 'まこなり社長' }
     future            { '早起きの習慣が身に付き夜ふかしをしなくなる。' }
-    user
+    association :user
     after(:build) do |target|
       target.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
     end
