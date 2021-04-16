@@ -8,7 +8,6 @@ class Target < ApplicationRecord
   with_options presence: true do
     validates :title, length: { maximum: 40 }
     validates :deadline
-    validates :genre_id, numericality: { other_than: 1 }
     validates :plan, length: { maximum: 1000 }
     validates :future, length: { maximum: 200 }
   end
