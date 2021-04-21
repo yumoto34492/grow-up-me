@@ -1,0 +1,12 @@
+<div class="li">
+  <%= link_to target_path(target.id), method: :get do %>
+    <div class="content_post" style="background-image">
+      <p>タイトル : <%= target.title %></p>
+      <p>期日 : <%= target.deadline.strftime("%Y年%m月%d日") %>まで</p>
+      <% if target.image.present?%>
+        <%= image_tag target.image.variant(resize: '500x500'), class: 'target-image' if target.image.attached? %>  
+      <% end %>
+    </div>
+  <% end %>
+  <%= link_to "by #{target.user.name}", user_path(target.user_id), class: "byusername" %>
+</div>
