@@ -1,5 +1,5 @@
 class TargetsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :search]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_target, only: [:show, :edit, :update]
   before_action :target_user, only: [:edit, :update]
@@ -45,6 +45,9 @@ class TargetsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @targets = Target.search(params[:keyword]).order("created_at DESC")
+  end
 
   private
   def target_params
