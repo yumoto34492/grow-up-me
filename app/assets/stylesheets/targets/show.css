@@ -9,6 +9,24 @@
   height: 100%;
 }
 
+.search-form {
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.search-input {
+  border-radius: 10px;
+  border:  2px solid #5989cf;
+}
+
+.search-btn {
+  border-radius: 10px;
+  background-color: #cde4ff;
+  border:  2px solid #5989cf;
+  color:  gray;
+  cursor: pointer;
+}
+
 .targets-post-title {
   font-size: 25px;
   font-weight: bold;

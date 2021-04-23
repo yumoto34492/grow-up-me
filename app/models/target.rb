@@ -2,6 +2,14 @@ class Target < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
+  def self.search(search)
+    if search != ""
+      Target.where(' title LIKE(?)', "%#{search}%" )
+    else
+      Target.all
+    end
+  end
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre
 

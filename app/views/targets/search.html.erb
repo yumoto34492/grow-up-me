@@ -1,23 +1,23 @@
 <div class="main">
-  <div class="left">  
+  <div class="left">
     <div class="title-only"> 
       <p>目標タイトル一覧</p>
     </div>
 
     <% @targets.each do |target| %>
-      <%= render partial: "targets/targetleft", locals: { target: target } %>
+      <%= render partial: "targetleft", locals: { target: target } %>
     <% end %>
   </div>  
   <div class="rigth">
     <div class="rigth-title">
-      <p><%= @name %>さんの目標一覧</p>
-      <%= render partial: "targets/formsearch" %>
+      <p>検索結果一覧</p>
+      <%= render partial: "formsearch" %>
     </div>
     <% @targets.each do |target| %>
-      <%= render partial: "targets/target", locals: { target: target} %>
+      <%= render partial: "target", locals: { target: target } %>
     <% end %>
   </div>
   <div class="target-new">
-    <%= render partial: "targets/targetnew" %>
+    <%= render partial: "targetnew" %>
   </div>
 </div>

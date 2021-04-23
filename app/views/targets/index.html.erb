@@ -5,38 +5,19 @@
     </div>
 
     <% @targets.each do |target| %>
-      <div class="content_post_title" style="background-image">
-        <%= link_to target_path(target.id), method: :get do %>
-          <div class="title_check">
-            ・<%= target.title %>
-          </div>
-        <% end %>
-      </div>
+      <%= render partial: "targetleft", locals: { target: target } %>
     <% end %>
   </div>  
   <div class="rigth">
     <div class="rigth-title">
       <p>投稿一覧</p>
+      <%= render partial: "formsearch" %>
     </div>
     <% @targets.each do |target| %>
-      <div class="li">
-        <%= link_to  target_path(target.id), method: :get do %>
-          <div class="content_post" style="background-image">
-            <p>タイトル : <%= target.title %></p>
-            <p>期日 : <%= target.deadline.strftime("%Y年%m月%d日") %>まで</p>
-            <% if target.image.present?%>
-              <%= image_tag target.image.variant(resize: '500x500'), class: 'target-image' if target.image.attached? %>  
-            <% end %>
-          </div>
-        <% end %>
-        <%= link_to "by #{target.user.name}", user_path(target.user_id), class: "byusername" %>
-      </div>
+      <%= render partial: "target", locals: { target: target } %>
     <% end %>
   </div>
   <div class="target-new">
-    <%= link_to(new_target_path) do %>
-      <span class='target-btn-text'>目  標</span>
-      <%= image_tag 'memo.png', size: '100x100', class: "target-btn-icon" %>
-    <% end %>
+    <%= render partial: "targetnew" %>
   </div>
 </div>
